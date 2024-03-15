@@ -73,12 +73,12 @@
             <h2>The numbers</h2>
             <ul id="Mylist"></ul>
             <script>
-    let list = document.getElementById("myList");
-    for (x = 0; x <= 49; x++) {
-        let li = document.createElement('li');
-            li.innerText = data[x];
+       let list = document.getElementById("myList");
+        for (let x = 0; x < 50; x++) {
+            let li = document.createElement('li');
+            li.innerText = number[x];
             list.appendChild(li);
-    }
+        }
             </script>
         </div>
     </div>
