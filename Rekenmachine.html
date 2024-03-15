@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="../CSS/Opmaak.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home page</a>
+        <a class="active" href="Rekenmachine.html">Calculator</a>
+        <a href="Bubblesort.html">Bubblesort</a>
+        <a href="Binarysort.html">Binarysort</a>
+    </div>
+<div class="container">
+    <div class="content">
+        <h2>This was the calculator</h2>
+        <p>I hope you like it, I guess. Kinda fun function tbh but I am still working on it, so if you have any improvements in mind let me know. This is kind of a fun side thingy I added to the side so I hope you just enjoy it I guess</p>
+        </div>
+        </div>
+            <script>
+                let amount = parseInt(prompt(`Enter a value for the amount of numbers`));
+        
+                while (amount <= 0 || isNaN(amount)) {
+                    amount = parseInt(prompt(`Please enter a valid number greater than 0`));
+                }
+        
+                let numbers = [];
+                let operators = [];
+        
+                for (let u = 0; u < amount; u++) {
+                    numbers[u] = parseFloat(prompt(`Enter a value for number ${u + 1}`));
+                }
+                let y = 1;
+                let num;
+                let result = numbers[0];
+                let p = confirm('Do you wish to add a power,modulus or root to the first number?');
+                if (p) {
+                    operators[y-1] = prompt(`Enter a valid operator (%, ^, √)`);
+        
+                    while (!['%', '^', '√'].includes(operators[y-1])) {
+                        operators[y-1] = prompt(`Please enter a valid operator (%, ^, √)`);
+                    }
+                    num = parseFloat(prompt(`Enter a value for the power/root/modulus`));
+                    switch (operators[y-1]) {
+                            case '%':
+                                result %= num;      
+                            case '^':
+                                result **= num;
+                            case '√':
+                                result = Math.pow(result, 1 / num);
+                        }
+                }
+
+        while (y < amount) {
+                    operators[y] = prompt(`Enter a valid operator (+, -, *, /, %, ^, √)`);
+        
+                    while (!['+', '-', '*', '/', '%', '^', '√'].includes(operators[y])) {
+                        operators[y] = prompt(`Please enter a valid operator (+, -, *, /, %, ^, √)`);
+                    }
+                    if (['%', '^', '√'].includes(operators[y])) {
+                        num = parseFloat(prompt(`Enter a value for the power/root/modulus`));
+        
+                        switch (operators[y]) {
+                            case '%':
+                                numbers[y] %= num;
+                                
+                            case '^':
+                                numbers[y] **= num;
+                                
+                            case '√':
+                                numbers[y] = Math.pow(numbers[y], 1 / num);
+                        }
+                    }
+                    while (!['+', '-', '*', '/'].includes(operators[y])) {
+                        operators[y] = prompt(`Please enter a valid operator (+, -, *, /)`); 
+                    }
+
+                    if (['+', '-', '*', '/'].includes(operators[y])) {
+                        switch (operators[y]) {
+                            case '+':
+                                result = result + numbers[y];
+                            case '-':
+                                result = result - numbers[y];
+
+                            case '/':
+                                if (numbers[y]===0) {
+                                    numbers[y] = parseFloat(prompt('Enter a valid number, since you can not devide by zero.'));
+                                }
+                                result = result / numbers[y];
+                            case '*':
+                                result = result * numbers[y];
+                              }
+                            }
+                            y += 1;
+                        }
+                alert(`The answer to your calculation is: ${result}`);
+            </script>
+        </body>
+        </html>
