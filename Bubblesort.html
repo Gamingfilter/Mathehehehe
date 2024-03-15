@@ -22,7 +22,7 @@
     let row = parseInt(prompt(`Enter a value for the number you search`));
     const number = [];
     let p;
-    for (p = 0; p <= 29; p++) {
+    for (p = 0; p <= 49; p++) {
     number[p] = Math.floor(Math.random()*101);
     }
     let j = 0;
@@ -36,16 +36,16 @@
     k = 0;
     let place;
     
-    for (i = 0; i <= 29; i++) {
+    for (i = 0; i <= 49; i++) {
         if (row == number[i]) {
             place = z + 1;
-            i = 29;
+            i = 49;
         } else {
             z = z + 1;
         }
         k = k + 1;
     }
-    if (z == 30) {
+    if (z == 50) {
         alert(`Number was not found in the random string of numbers`);
     } else {
         alert(+ row `Found on the `+ place`th place in the string`);
@@ -55,7 +55,7 @@
     let insideCounter;
     
     counter = 0;
-    for (counter = 0; counter <= 29; counter++) {
+    for (counter = 0; counter <= 49; counter++) {
         for (insideCounter = 0; insideCounter <= 29 - counter - 1; insideCounter++) {
             if (number[insideCounter] > number[insideCounter + 1]) {
                 placeholder = number[insideCounter];
@@ -67,9 +67,20 @@
     alert(`The order of these numbers is:`)
     counter = 0;
     let x = 0;
-    for (x = 0; x <= 29; x++) {
-    alert(number[x]);
-    }
         </script>
+    <div class="container">
+        <div class="content">
+            <h2>The numbers</h2>
+            <ul id="Mylist"></ul>
+            <script>
+    let list = document.getElementById("myList");
+    for (x = 0; x <= 49; x++) {
+        let li = document.createElement('li');
+            li.innerText = data[x];
+            list.appendChild(li);
+    }
+            </script>
+        </div>
+    </div>
     </body>
 </html>
