@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bubblesort</title>
+        <link rel="stylesheet" href="../CSS/Opmaak.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.html">Home page</a>
+            <a href="Rekenmachine.html">Calculator</a>
+            <a class="active" href="Bubblesort.html">Bubblesort</a>
+            <a href="Binarysort.html">Binarysort</a>
+        </div>
+    <div class="container">
+        <div class="content">
+            <h2>Bubblesort</h2>
+            <p>This, just like the calculator is just a funny thing, don't think much of it and you can just mess around with it or smt. Do whatever you want.</p>
+        </div>
+    </div>
+        <script>
+    let row = parseInt(prompt(`Enter a value for the number you search`));
+    const number = [];
+    let p;
+    for (p = 0; p <= 29; p++) {
+    number[p] = Math.floor(Math.random()*101);
+    }
+    let j = 0;
+    let i;
+    
+    let z;
+    
+    z = 0;
+    let k;
+    
+    k = 0;
+    let place;
+    
+    for (i = 0; i <= 29; i++) {
+        if (row == number[i]) {
+            place = z + 1;
+            i = 29;
+        } else {
+            z = z + 1;
+        }
+        k = k + 1;
+    }
+    if (z == 30) {
+        alert(`Number was not found in the random string of numbers`);
+    } else {
+        alert(+ row `Found on the `+ place`th place in the string`);
+    }
+    let placeholder;
+    let counter;
+    let insideCounter;
+    
+    counter = 0;
+    for (counter = 0; counter <= 29; counter++) {
+        for (insideCounter = 0; insideCounter <= 29 - counter - 1; insideCounter++) {
+            if (number[insideCounter] > number[insideCounter + 1]) {
+                placeholder = number[insideCounter];
+                number[insideCounter] = number[insideCounter + 1];
+                number[insideCounter + 1] = placeholder;
+            }
+        }
+    }
+    alert(`The order of these numbers is:`)
+    counter = 0;
+    let x = 0;
+    for (x = 0; x <= 29; x++) {
+    alert(number[x]);
+    }
+        </script>
+    </body>
+</html>
